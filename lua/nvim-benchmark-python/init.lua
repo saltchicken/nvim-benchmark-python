@@ -14,7 +14,7 @@ def func(x):
 	return x + 1
 
 def test_answer():
-	assert func(3) == 5
+	assert func(3) == 4
 		]])
 	file:close()
 	print(vim.api.nvim_buf_get_name(0))
