@@ -12,7 +12,6 @@ function M.create_tests(test_params, test_results)
 	local import_name = file_name:sub(1, -4)
 
 	-- Get current cursor position.
-	local cursor_row, cursor_column = unpack(vim.api.nvim_win_get_cursor(0))
 	-- print(cursor_row, cursor_column)
 
 	-- Iterate through lines to find function names. Assign to funcs. 
@@ -28,7 +27,6 @@ function M.create_tests(test_params, test_results)
 			-- print(param_count, params)
 		end
 	end
-	
 	local test_body = string.format('import %s', import_name) .. "\n\n"
 
 	-- Iterate through function names and create test functions. Append to test_body.

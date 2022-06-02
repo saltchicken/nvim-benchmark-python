@@ -22,3 +22,18 @@ function get_parameters(func_line)
 	return param_count, params
 
 end
+
+function get_function()
+	local cursor_row, cursor_column = unpack(vim.api.nvim_win_get_cursor(0))
+	lines = vim.api.nvim_buf_get_lines(1, 0, -1, true)
+	for index, line in ipairs(lines) do
+		if index == cursor_row then
+			if string.find(line, "def") then
+				local func = string.match(line, ".+%(")
+				func = func:gsub("%s+", "")
+				return func:sub(4, -2)
+			end
+		end
+	end
+	return nil
+end
