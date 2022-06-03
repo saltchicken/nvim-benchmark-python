@@ -1,4 +1,14 @@
 # nvim-benchmark-python
-Use command :CreateTests "expected results" "parameters" while on the same line as the desired function.
-  
-"parameters" has to be all one word separated by commas.
+### Dependencies
+```sh
+pip install pytest
+```
+### Usage
+Place cursor on the line of the desired function
+```
+:CreateTests <assert value> <function parameters>
+```
+Creates file in the same directory with "test_" prepended. Note that the pytest module is required.
+```
+:!exec pytest
+```
